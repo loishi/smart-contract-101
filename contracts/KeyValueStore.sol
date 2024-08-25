@@ -35,21 +35,32 @@ contract SampleKVS {
         return result;
     }
 
-    function readAll() view public returns (Value[] memory) {
-        Value[] memory result = new Value[](keys.length);
-        for (uint i = 0; i < keys.length; i++) {
-            if (!kvs[keys[i]].exists) { continue; }
-            result[i] = kvs[keys[i]];
-        }
-        return result;
-    }
-
     function del(string memory key) public {
         require(kvs[key].exists, "Doesn't exist");
         require(kvs[key].writer == msg.sender, "No permission");
 
         kvs[key].exists = false;
         emit DeleteEvent(key);
+    }
+
+    function getKeys() view public returns (string[] memory) {
+        uint count = 0;
+        for (uint i = 0; i < keys.length; i++) {
+            if (kvs[keys[i]].exists) {
+                count++;
+            }
+        }
+        string[] memory result = new string[](count);
+
+        uint index = 0;
+        for (uint i = 0; i < keys.length; i++) {
+            if (kvs[keys[i]].exists) {
+                result[index] = keys[i];
+                index++;
+            }
+        }
+
+        return result;
     }
 }
 

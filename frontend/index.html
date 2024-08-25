@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample KVS</title>
+</head>
+<body>
+    <main>
+        <h1>Simple KVS</h1>
+        <button onclick="connectWallet()">Walletに接続</button>
+        <form>
+            <input type="text" name="key" id="create-key" placeholder="Key">
+            <input type="text" name="value" id="create-value" placeholder="Value">
+            <button type="button" onclick="handleCreate()">作成</button>
+        </form>
+
+        <button type="button" onclick="read()">読み込み</button>
+        <ul id="values"></ul>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/4.12.1/web3.min.js" integrity="sha512-ZQUeWjOt4qysgrYC1L7+g6wFzn3IGj8HnwHyV/SPnkwt/QQX3Z+AX1cJCiQ2W/L+xhBLcLPHXtFUseK3rHN2uw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="main.js"></script>
+</body>
+</html>

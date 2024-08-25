@@ -8,12 +8,6 @@ import hre from "hardhat";
 import { ValueStructOutput } from "../typechain-types/SampleKVS";
 
 describe("KeyValueStore_Test", function () {
-    it("constructor test", async function() {
-        const kvs = await hre.ethers.deployContract("SampleKVS");
-        const results: ValueStructOutput[] = await kvs.readAll();
-        expect(results.length).equal(0);
-    });
-
     it("write test", async function () {
         const [owner, _] = await hre.ethers.getSigners();
 
