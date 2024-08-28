@@ -12,6 +12,6 @@
   "scripts": {
     "deploy": "hardhat ignition deploy ./ignition/modules/DeployKeyValueStore.ts --network localhost && hardhat ignition deploy ./ignition/modules/DeployDelightCoin.ts --network localhost",
     "generate-info": "hardhat run scripts/generateContractInfo.js",
-    "serve": "python3 -m http.server --bind 127.0.0.1"
+    "serve": "cd frontend && python3 -m http.server --bind 127.0.0.1"
   }
 }
