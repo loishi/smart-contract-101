@@ -31,7 +31,7 @@ contract SampleKVS {
 
     function read(string memory key) view public returns (Value memory) {
         Value memory result = kvs[key];
-        require(result.exists, "Doesn't exists");
+        require(result.exists, "Doesn't exist");
         return result;
     }
 

@@ -1,1 +1,2 @@
-# Smart Contract 101 Sample
+# Smart Contract 101
+

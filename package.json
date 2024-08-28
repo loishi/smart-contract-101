@@ -1,6 +1,17 @@
 {
   "devDependencies": {
+    "@biomejs/biome": "1.8.3",
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
     "hardhat": "^2.22.9"
+  },
+  "dependencies": {
+    "@nomicfoundation/hardhat-ignition": "^0.15.5",
+    "@openzeppelin/contracts": "^5.0.2",
+    "ethers": "^6.13.2"
+  },
+  "scripts": {
+    "deploy": "hardhat ignition deploy ./ignition/modules/DeployKeyValueStore.ts --network localhost && hardhat ignition deploy ./ignition/modules/DeployDelightCoin.ts --network localhost",
+    "generate-info": "hardhat run scripts/generateContractInfo.js",
+    "serve": "python3 -m http.server --bind 127.0.0.1"
   }
 }

@@ -5,11 +5,12 @@ import {
 import { anyValue } from "@nomicfoundation/hardhat-chai-matchers/withArgs";
 import { expect } from "chai";
 import hre from "hardhat";
-import { ValueStructOutput } from "../typechain-types/SampleKVS";
+import { ethers } from "hardhat";
+import type { ValueStructOutput } from "../typechain-types/SampleKVS";
 
-describe("KeyValueStore_Test", function () {
-    it("write test", async function () {
-        const [owner, _] = await hre.ethers.getSigners();
+describe("KeyValueStore_Test", () => {
+    it("write test", async () => {
+        const [owner, _] = await ethers.getSigners();
 
         const kvs = await hre.ethers.deployContract("SampleKVS");
         const expectedKey = "hoge";
@@ -24,7 +25,7 @@ describe("KeyValueStore_Test", function () {
         expect(value[2]).equal(true);
     });
 
-    it("delete test", async function () {
+    it("delete test", async () => {
         const kvs = await hre.ethers.deployContract("SampleKVS");
         const expectedKey = "hoge";
         const expectedValue = "fuga";
@@ -33,7 +34,7 @@ describe("KeyValueStore_Test", function () {
         await expect(kvs.read(expectedKey)).to.be.revertedWith("Doesn't exists");
     });
 
-    it("delete test without permission", async function () {
+    it("delete test without permission", async () => {
         const [owner, otherAccount] = await hre.ethers.getSigners();
         const kvs = await hre.ethers.deployContract("SampleKVS");
 
