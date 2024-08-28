@@ -10,8 +10,7 @@
     "ethers": "^6.13.2"
   },
   "scripts": {
-    "deploy": "hardhat ignition deploy ./ignition/modules/DeployKeyValueStore.ts --network localhost && hardhat ignition deploy ./ignition/modules/DeployDelightCoin.ts --network localhost",
-    "generate-info": "hardhat run scripts/generateContractInfo.js",
+    "deploy": "hardhat ignition deploy ./ignition/modules/DeployKeyValueStore.ts --network localhost && hardhat ignition deploy ./ignition/modules/DeployDelightCoin.ts --network localhost && hardhat run scripts/generateContractInfo.js",
     "serve": "cd frontend && python3 -m http.server --bind 127.0.0.1"
   }
 }
